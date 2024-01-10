@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nmmcrevise/Features/Cart/cart.dart';
-import 'package:nmmcrevise/Features/Home_Screen/Home.dart';
+import 'package:nmmcrevise/Features/Home_Screen/home.dart';
 import 'package:nmmcrevise/Features/OrderList/orders.dart';
 import 'package:nmmcrevise/Features/SpareParts/spareParts.dart';
 import 'package:nmmcrevise/Features/dealer/dealerFeedback/dealerfeedback.dart';
