@@ -6,61 +6,6 @@ import 'package:nmmcrevise/features/product/product_preview_vertical.dart';
 
 
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
-
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
-
-class Welcome {
-  Welcome({
-    required this.spareparts,
-  });
-
-  List<Sparepart> spareparts;
-
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
-        spareparts: List<Sparepart>.from(
-            json["spareparts"].map((x) => Sparepart.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "spareparts": List<dynamic>.from(spareparts.map((x) => x.toJson())),
-      };
-}
-
-class Sparepart {
-  Sparepart({
-    required this.id,
-    required this.name,
-    required this.sku,
-    required this.warehouse,
-    required this.quantity,
-  });
-  String id;
-  String name;
-  String sku;
-  String warehouse;
-  int quantity;
-
-  factory Sparepart.fromJson(Map<String, dynamic> json) => Sparepart(
-        id: json["id"],
-        name: json["name"],
-        sku: json["sku"],
-        warehouse: json["warehouse"],
-        quantity: json["quantity"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "sku": sku,
-        "warehouse": warehouse,
-        "quantity": quantity,
-      };
-}
-
-String Link =
-    'http://localhost:7071/api/dealers/d5f9774b-783a-4ece-b210-cf9a7a7c2cea/order';
-
 class ProdPreview extends StatefulWidget {
   final String name;
   final int quantity;
@@ -93,7 +38,6 @@ class _ProdPreviewState extends State<ProdPreview> {
   String Link =
       'http://localhost:7071/api/dealers/d5f9774b-783a-4ece-b210-cf9a7a7c2cea/order';
 
-  late Future<Welcome> futureOrder;
 
   final String namee;
   final int quantityy;
@@ -117,13 +61,7 @@ class _ProdPreviewState extends State<ProdPreview> {
 
   @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
 
-    String available;
-    bool keypad = true;
-
-    bool isLocked = keypad ? quantityy != 0 : quantityy == 0;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

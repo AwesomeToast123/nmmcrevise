@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nmmcrevise/Features/dealer/dealerFeedback/post_feedback.dart';
 
-class dealer_failureScreen extends StatelessWidget {
-  const dealer_failureScreen({Key? key}) : super(key: key);
+class DealerFailureScreen extends StatelessWidget {
+  const DealerFailureScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

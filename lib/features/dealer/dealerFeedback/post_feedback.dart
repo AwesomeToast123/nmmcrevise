@@ -1,59 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:nmmcrevise/Features/dealer/dealerFeedback/post_feedback.dart';
 
-Future<feedback> postFeedback(String title, String body) async {
-  final response = await http.post(
-    Uri.parse(
-        'https://249703c8-739e-4228-83b6-1667b10971f9.mock.pstmn.io//orders/2009/purchaseorders/2010/feedback'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=utf-8',
-    },
-    body: jsonEncode(<String, dynamic>{
-      'title': title,
-      'body': body,
-    }),
-  );
 
-  if (response.statusCode == 201) {
-    //print(response.body);
-    return feedback.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to create dealer');
-  }
-}
 
-class feedback {
-  String title;
-  String body;
-  String code;
-  String message;
-
-  feedback({
-    required this.title,
-    required this.body,
-    required this.code,
-    required this.message,
-  });
-
-  factory feedback.fromJson(Map<String, dynamic> json) {
-    return feedback(
-      title: json['warehouse'].toString(),
-      body: json['address'].toString(),
-      code: json['code'].toString(),
-      message: json['message'].toString(),
-    );
-  }
-}
-
-class postfeedBack extends StatefulWidget {
-  const postfeedBack({Key? key}) : super(key: key);
+class PostFeedBack extends StatefulWidget {
+  const PostFeedBack({Key? key}) : super(key: key);
 
   @override
-  _postfeedBackState createState() => _postfeedBackState();
+  _PostFeedBackState createState() => _PostFeedBackState();
 }
 
-class _postfeedBackState extends State<postfeedBack> {
+class _PostFeedBackState extends State<PostFeedBack> {
   late final TextEditingController _FBcontroller = TextEditingController();
   late final TextEditingController _FBcontroller2 = TextEditingController();
   Future<feedback>? _postFB;

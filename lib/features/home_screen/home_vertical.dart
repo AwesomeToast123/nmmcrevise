@@ -9,14 +9,14 @@ import 'package:nmmcrevise/Features/dealer/enrollDealer/post_dealer.dart';
 import 'package:nmmcrevise/api_services/dealer_api_services.dart';
 import 'package:nmmcrevise/features/order_list/orders.dart';
 
-class HomePage_Vertical extends StatefulWidget {
-  const HomePage_Vertical({Key? key}) : super(key: key);
+class HomePageVertical extends StatefulWidget {
+  const HomePageVertical({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage_Vertical> {
+class _HomePageState extends State<HomePageVertical> {
   late final TextEditingController _address = TextEditingController();
   late Future<dynamic> add;
 

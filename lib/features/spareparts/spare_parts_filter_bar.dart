@@ -7,14 +7,14 @@ import 'package:nmmcrevise/api_services/spare_parts_api_services.dart';
 
 ///WIP relocation of filter bar widgets
 ///
-class spareFilterBar extends StatefulWidget {
-  const spareFilterBar({Key? key}) : super(key: key);
+class SpareFilterBar extends StatefulWidget {
+  const SpareFilterBar({Key? key}) : super(key: key);
 
   @override
-  State<spareFilterBar> createState() => _spareFilterBarState();
+  State<SpareFilterBar> createState() => _SpareFilterBarState();
 }
 
-class _spareFilterBarState extends State<spareFilterBar> {
+class _SpareFilterBarState extends State<SpareFilterBar> {
   Widget FilterBars(Future<List<dynamic>> dyna) {
     var w = MediaQuery.of(context).size.width;
 

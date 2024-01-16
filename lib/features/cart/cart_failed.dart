@@ -1,63 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:quantity_input/quantity_input.dart';
-import 'package:http/http.dart' as http;
 
-class spareParts {
-  String name;
-  String warehouse;
-  String id;
-  String quantity;
 
-  spareParts({
-    required this.name,
-    required this.id,
-    required this.warehouse,
-    required this.quantity,
-  });
-
-  factory spareParts.fromJson(Map<String, dynamic> json) => spareParts(
-        name: json["name"],
-        warehouse: json["warehouse"],
-        id: json["id"],
-        quantity: json["quantity"],
-      );
-}
-
-Future<List<spareParts>> fetchParts() async {
-  final response = await http.get(
-      Uri.parse('http://localhost:7071/api/spareparts'),
-      headers: {"Accept": "application/json", "Access-Control_Origin": "*"});
-
-  if (response.statusCode == 200) {
-    var jsonResponse = json.decode(response.body);
-    List<spareParts> parts = [];
-
-    for (var u in jsonResponse) {
-      spareParts part = spareParts(
-        name: u['name'].toString(),
-        id: u['id'].toString(),
-        warehouse: u['warehouse'].toString(),
-        quantity: u['quantity'].toString(),
-      );
-      parts.add(part);
-    }
-    return parts;
-  } else {
-    throw Exception('Failed to load parts');
-  }
-}
-
-class Cart_failed extends StatefulWidget {
-  const Cart_failed({Key? key}) : super(key: key);
+class CartFailed extends StatefulWidget {
+  const CartFailed({Key? key}) : super(key: key);
 
   @override
-  _CartState createState() => _CartState();
+  _CartFailedState createState() => _CartFailedState();
 }
 
-class _CartState extends State<Cart_failed> {
+class _CartFailedState extends State<CartFailed> {
   int steppedIntInput = 1;
 
   @override

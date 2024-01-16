@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class spraepartFailed extends StatefulWidget {
-  const spraepartFailed({Key? key}) : super(key: key);
+class SparepartFailed extends StatefulWidget {
+  const SparepartFailed({Key? key}) : super(key: key);
 
   @override
   _sparePartsFailedState createState() => _sparePartsFailedState();
 }
 
-class _sparePartsFailedState extends State<spraepartFailed> {
+class _sparePartsFailedState extends State<SparepartFailed> {
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;

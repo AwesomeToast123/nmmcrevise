@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:nmmcrevise/Features/dealer/enrollDealer/post_dealer.dart';
 
-class enroll_failureScreen extends StatelessWidget {
-  const enroll_failureScreen({Key? key}) : super(key: key);
+class EnrollFailureScreen extends StatelessWidget {
+  const EnrollFailureScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

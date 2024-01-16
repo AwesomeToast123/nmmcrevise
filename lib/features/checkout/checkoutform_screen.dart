@@ -6,14 +6,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:nmmcrevise/Features/Cart/cart_items.dart';
 import 'package:nmmcrevise/Features/checkout/checkout_screen.dart';
 
-class Checkout_Screen extends StatefulWidget {
-  const Checkout_Screen({Key? key}) : super(key: key);
+class CheckoutScreen extends StatefulWidget {
+  const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
   _CheckoutScreenState createState() => _CheckoutScreenState();
 }
 
-class _CheckoutScreenState extends State<Checkout_Screen> {
+class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

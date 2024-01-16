@@ -7,60 +7,6 @@ import 'package:nmmcrevise/api_services/orders_api_services.dart';
 import 'package:quantity_input/quantity_input.dart';
 
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
-
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
-
-class Welcome {
-  Welcome({
-    required this.spareparts,
-  });
-
-  List<Sparepart> spareparts;
-
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
-        spareparts: List<Sparepart>.from(
-            json["spareparts"].map((x) => Sparepart.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "spareparts": List<dynamic>.from(spareparts.map((x) => x.toJson())),
-      };
-}
-
-class Sparepart {
-  Sparepart({
-    required this.id,
-    required this.name,
-    required this.sku,
-    required this.warehouse,
-    required this.quantity,
-  });
-  String id;
-  String name;
-  String sku;
-  String warehouse;
-  int quantity;
-
-  factory Sparepart.fromJson(Map<String, dynamic> json) => Sparepart(
-        id: json["id"],
-        name: json["name"],
-        sku: json["sku"],
-        warehouse: json["warehouse"],
-        quantity: json["quantity"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "sku": sku,
-        "warehouse": warehouse,
-        "quantity": quantity,
-      };
-}
-
-String Link =
-    'http://localhost:7071/api/dealers/d5f9774b-783a-4ece-b210-cf9a7a7c2cea/order';
 
 class ProdPreview_Horizontal extends StatefulWidget {
   final String name;
@@ -94,7 +40,6 @@ class _ProdPreviewState extends State<ProdPreview_Horizontal> {
   String Link =
       'http://localhost:7071/api/dealers/d5f9774b-783a-4ece-b210-cf9a7a7c2cea/order';
 
-  late Future<Welcome> futureOrder;
 
   final String namee;
   final int quantityy;

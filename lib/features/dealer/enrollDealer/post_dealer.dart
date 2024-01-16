@@ -1,107 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:convert';
-//import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nmmcrevise/Features/dealer/enrollDealer/post_dealer.dart';
 import 'package:nmmcrevise/Features/dealer/enrollDealer/verification.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-Future<enrolDealer> enrollDealer(
-  String firstname,
-  String middlename,
-  String secondname,
-  String lastname,
-  String suffix,
-  String address,
-  String phoneNumber,
-  String email,
-) async {
-  final response = await http.post(
-    Uri.parse('http://localhost:7071/api/dealers/enroll'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=utf-8',
-    },
-    body: jsonEncode(<String, dynamic>{
-      'dealer': {
-        'name': {
-          'firstname': firstname,
-          'middlename': middlename,
-          'lastname': lastname,
-          'secondname': secondname,
-          'suffix': suffix,
-        },
-      },
-      'phoneNumber': phoneNumber,
-      'email': email,
-      'address': address,
-    }),
-  );
 
-  if (response.statusCode == 201) {
-    print(response.body);
-    return enrolDealer.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to create dealer');
-  }
-}
-
-class enrolDealer {
-  final String phoneNumber;
-  final String email;
-  final String address;
-  final String secondName;
-  final String firstName;
-  final String middleName;
-  final String lastName;
-  final String suffix;
-  final String id;
-
-  enrolDealer({
-    required this.id,
-    required this.secondName,
-    required this.phoneNumber,
-    required this.address,
-    required this.email,
-    required this.firstName,
-    required this.middleName,
-    required this.lastName,
-    required this.suffix,
-  });
-
-  factory enrolDealer.fromJson(Map<String, dynamic> json) {
-    return enrolDealer(
-      secondName: json['name'].toString(),
-      firstName: json['dealer']['name']['firstname'].toString(),
-      lastName: json['dealer']['name']['lastname'].toString(),
-      middleName: json['dealer']['name']['middlename'].toString(),
-      suffix: json['dealer']['name']['suffix'].toString(),
-      phoneNumber: json['phoneNumber'].toString(),
-      address: json['address'].toString(),
-      email: json['email'].toString(),
-      id: json['id'].toString(),
-    );
-  }
-}
-
-class dealerEnroll extends StatefulWidget {
-  const dealerEnroll({Key? key}) : super(key: key);
+class DealerEnroll extends StatefulWidget {
+  const DealerEnroll({Key? key}) : super(key: key);
 
   @override
-  _dealerEnrollState createState() => _dealerEnrollState();
+  _DealerEnrollState createState() => _DealerEnrollState();
 }
 
-class _dealerEnrollState extends State<dealerEnroll> {
+class _DealerEnrollState extends State<DealerEnroll> {
   String dropdownVal = 'Suffix';
-  List<String> _dropdownValues = [
-    "Suffix",
-    "Mr",
-    "Mrs",
-    "Dr.",
-    "Engr",
-    "Cpt",
-  ];
 
   //names
   late final TextEditingController _firstname = TextEditingController();

@@ -7,22 +7,17 @@ import 'package:nmmcrevise/api_services/dealer_api_services.dart';
 import 'package:nmmcrevise/features/order_list/orders.dart';
 
 
-/* 
-  Possible solution for Quantity:
-    A) Edit quantity on Preview and remove quantity meter in cart
-*/
-
-class cart_item_Horizontal extends StatefulWidget {
+class CartItemHorizontal extends StatefulWidget {
   final int quantity;
 
-  const cart_item_Horizontal({required this.quantity, Key? key})
+  const CartItemHorizontal({required this.quantity, Key? key})
       : super(key: key);
 
   @override
   _cartitemState createState() => _cartitemState(quantity: quantity);
 }
 
-class _cartitemState extends State<cart_item_Horizontal> {
+class _cartitemState extends State<CartItemHorizontal> {
   int steppedIntInput = 0;
   final int quantity;
 

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:nmmcrevise/features/spareparts/spare_parts_horizontal.dart';
 import 'package:nmmcrevise/features/spareparts/spare_parts_vertical.dart';
 
-class sparePart extends StatefulWidget {
-  const sparePart({Key? key}) : super(key: key);
+class SparePart extends StatefulWidget {
+  const SparePart({Key? key}) : super(key: key);
 
   @override
-  _sparePartstate createState() => _sparePartstate();
+  _SparePartstate createState() => _SparePartstate();
 }
 
-class _sparePartstate extends State<sparePart> {
+class _SparePartstate extends State<SparePart> {
   late Future<List<dynamic>> dyna;
 
   late Future<dynamic> dynna;

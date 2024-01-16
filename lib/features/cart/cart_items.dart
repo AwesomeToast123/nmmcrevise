@@ -5,20 +5,20 @@ import 'package:nmmcrevise/Features/Cart/cart_items_horizontal.dart';
 import 'package:nmmcrevise/Features/Cart/cart_items_vertical.dart';
 
 
-class cart_item extends StatefulWidget {
+class CarItem extends StatefulWidget {
   final int quantity;
 
-  const cart_item({required this.quantity, Key? key});
+  const CarItem({required this.quantity, Key? key});
 
   @override
-  _cartitemState createState() => _cartitemState(quantity: quantity);
+  _CartItemState createState() => _CartItemState(quantity: quantity);
 }
 
-class _cartitemState extends State<cart_item> {
+class _CartItemState extends State<CarItem> {
   int steppedIntInput = 0;
   final int quantity;
 
-  _cartitemState({required this.quantity});
+  _CartItemState({required this.quantity});
 
   late final TextEditingController _address = TextEditingController();
 

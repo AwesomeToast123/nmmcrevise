@@ -6,10 +6,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nmmcrevise/Features/Home_Screen/home.dart';
 
-class Checkout_Success extends StatefulWidget {
+class CheckoutSuccess extends StatefulWidget {
   final String id;
 
-  const Checkout_Success({
+  const CheckoutSuccess({
     Key? key,
     required this.id,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class Checkout_Success extends StatefulWidget {
   _CheckoutSuccessState createState() => _CheckoutSuccessState(idd: id);
 }
 
-class _CheckoutSuccessState extends State<Checkout_Success> {
+class _CheckoutSuccessState extends State<CheckoutSuccess> {
   final String idd;
   late Future<String> word;
 

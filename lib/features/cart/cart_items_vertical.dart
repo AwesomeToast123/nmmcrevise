@@ -7,23 +7,23 @@ import 'package:nmmcrevise/api_services/dealer_api_services.dart';
 import 'package:nmmcrevise/features/order_list/orders.dart';
 import 'package:quantity_input/quantity_input.dart';
 
-class Cart_item_Vertical extends StatefulWidget {
+class CartItemVertical extends StatefulWidget {
   final int quantity;
 
-  const Cart_item_Vertical({required this.quantity, Key? key})
+  const CartItemVertical({required this.quantity, Key? key})
       : super(key: key);
 
   @override
-  _cartitemState createState() => _cartitemState(quantity: quantity);
+  _CartItemState createState() => _CartItemState(quantity: quantity);
 }
 
-class _cartitemState extends State<Cart_item_Vertical> {
+class _CartItemState extends State<CartItemVertical> {
   int steppedIntInput = 0;
   final int quantity;
 
   late final TextEditingController _address = TextEditingController();
 
-  _cartitemState({required this.quantity, Key? key});
+  _CartItemState({required this.quantity, Key? key});
 
   late bool ischecked = true;
   double widthButton = 100;

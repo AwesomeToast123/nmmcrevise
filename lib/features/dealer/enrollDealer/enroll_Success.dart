@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:nmmcrevise/Features/Home_Screen/home.dart';
 
-class enroll_successScreen extends StatelessWidget {
-  const enroll_successScreen({Key? key}) : super(key: key);
+class EnrollSuccessScreen extends StatelessWidget {
+  const EnrollSuccessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
