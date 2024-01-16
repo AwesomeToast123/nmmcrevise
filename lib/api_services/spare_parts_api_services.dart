@@ -1,9 +1,11 @@
-import 'package:nmmcrevise/Model/sparePartsOrdered.dart';
-import 'package:nmmcrevise/Model/sparePartsProductGet.dart';
+import 'package:nmmcrevise/model/spare_parts.dart';
+import 'package:nmmcrevise/model/spare_parts_ordered.dart';
 
-import '../Model/spareParts.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:nmmcrevise/model/spare_parts_product_get.dart';
 
 var link = 'http://localhost:7071/api/spareparts/';
 

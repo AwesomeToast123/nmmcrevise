@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, deprecated_member_use
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:nmmcrevise/api_services/orders_api_services.dart';
-import 'package:nmmcrevise/Features/Product/ProductPreview_Horizontal.dart';
-import 'package:nmmcrevise/Features/Product/ProductPreview_Vertical.dart';
+import 'package:nmmcrevise/features/product/product_preview_horizontal.dart';
+import 'package:nmmcrevise/features/product/product_preview_vertical.dart';
 
-import '../Cart/cart.dart';
+
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 

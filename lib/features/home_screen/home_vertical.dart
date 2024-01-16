@@ -1,15 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:nmmcrevise/APICalls/dealerAPI.dart';
-import 'package:nmmcrevise/Features/Cart/cart.dart';
 import 'package:nmmcrevise/Features/Cart/cart_items.dart';
 import 'package:nmmcrevise/Features/Home_Screen/home.dart';
-import 'package:nmmcrevise/Features/OrderList/orders.dart';
-import 'package:nmmcrevise/Features/dealer/dealerFail.dart';
 import 'package:nmmcrevise/Features/SpareParts/spareParts.dart';
 
 import 'package:nmmcrevise/Features/dealer/enrollDealer/post_dealer.dart';
+import 'package:nmmcrevise/api_services/dealer_api_services.dart';
+import 'package:nmmcrevise/features/order_list/orders.dart';
 
 class HomePage_Vertical extends StatefulWidget {
   const HomePage_Vertical({Key? key}) : super(key: key);
@@ -24,13 +22,11 @@ class _HomePageState extends State<HomePage_Vertical> {
 
   void initState() {
     super.initState();
-    add = dealerAPI().fetchDealer();
+    add = DealerAPI().fetchDealer();
   }
 
   @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -379,7 +375,7 @@ class _HomePageState extends State<HomePage_Vertical> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    add = dealerAPI().updateDealer(_address.text);
+                    add = DealerAPI().updateDealer(_address.text);
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (context) => HomePage()),

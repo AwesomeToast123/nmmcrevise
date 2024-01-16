@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nmmcrevise/Features//OrderList/orders.dart';
+import 'package:nmmcrevise/features/order_list/orders.dart';
 
 class dealer_successScreen extends StatelessWidget {
   const dealer_successScreen({Key? key}) : super(key: key);

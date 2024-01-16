@@ -28,7 +28,6 @@ class DealerAPI {
 
     if (response.statusCode == 200) {
       return Welcome.fromJson(jsonDecode(response.body));
-      //return welcomeFromJson(response.body);
     } else {
       throw Exception('Failed To update album');
     }

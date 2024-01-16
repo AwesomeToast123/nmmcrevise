@@ -2,13 +2,10 @@
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import 'package:nmmcrevise/APICalls/ordersAPI.dart';
-import 'package:nmmcrevise/APICalls/ordersAPI.dart';
 import 'package:nmmcrevise/Features/Cart/cart_items.dart';
-import 'package:nmmcrevise/APICalls/ordersAPI.dart';
+import 'package:nmmcrevise/api_services/orders_api_services.dart';
 import 'package:quantity_input/quantity_input.dart';
 
-import '../Cart/cart.dart';
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 

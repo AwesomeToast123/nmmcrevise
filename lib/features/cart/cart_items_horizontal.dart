@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nmmcrevise/api_services/cart_api_services.dart';
 import 'package:nmmcrevise/api_services/dealer_api_services.dart';
-import 'package:nmmcrevise/Features/OrderList/orders.dart';
+import 'package:nmmcrevise/features/order_list/orders.dart';
 
 
 /* 
@@ -433,6 +433,7 @@ class _cartitemState extends State<cart_item_Horizontal> {
         ),
       ),
     );
+
   }
 
   Future<void> _displayTextInputDialog() async {
@@ -451,7 +452,7 @@ class _cartitemState extends State<cart_item_Horizontal> {
           width: w,
           height: h,
           child: FutureBuilder<dynamic>(
-              future: dealerAPI().fetchDealer(),
+              future: DealerAPI().fetchDealer(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(

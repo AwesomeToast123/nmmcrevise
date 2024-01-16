@@ -2,7 +2,7 @@
 
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:nmmcrevise/APICalls/sparePartsAPI.dart';
+import 'package:nmmcrevise/api_services/spare_parts_api_services.dart';
 
 
 ///WIP relocation of filter bar widgets
@@ -16,11 +16,6 @@ class spareFilterBar extends StatefulWidget {
 
 class _spareFilterBarState extends State<spareFilterBar> {
   Widget FilterBars(Future<List<dynamic>> dyna) {
-    String valName = "Name";
-    String valBrand = "Brand";
-    String valTag = "Tags";
-    String valQuant = "Quantity";
-    var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
 
     return Container(
@@ -40,7 +35,7 @@ class _spareFilterBarState extends State<spareFilterBar> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                dyna = sparePartsAPI().fetchPartsInStock();
+                                dyna = SparePartsAPI().fetchPartsInStock();
                               });
                             },
                             child: Text(
@@ -54,7 +49,7 @@ class _spareFilterBarState extends State<spareFilterBar> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                dyna = sparePartsAPI().fetchPartsOutofStock();
+                                dyna = SparePartsAPI().fetchPartsOutofStock();
                               });
                             },
                             child: Text(
@@ -148,11 +143,11 @@ class _spareFilterBarState extends State<spareFilterBar> {
                         onChanged: (value) {
                           if (value == 'Name') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna = SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna = SparePartsAPI()
                                   .fetchPartsName(value.toString());
                             });
                           }
@@ -230,11 +225,11 @@ class _spareFilterBarState extends State<spareFilterBar> {
                         onChanged: (value) {
                           if (value == 'Tags') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna = SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna = SparePartsAPI()
                                   .fetchPartsTag(value.toString());
                             });
                           }
@@ -312,11 +307,11 @@ class _spareFilterBarState extends State<spareFilterBar> {
                         onChanged: (value) {
                           if (value == 'Brand') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna =SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna =SparePartsAPI()
                                   .fetchPartsByBrand(value.toString());
                             });
                           }
@@ -398,11 +393,11 @@ class _spareFilterBarState extends State<spareFilterBar> {
                     selectedValue = value as String;
                     if (value == 'Max') {
                       setState(() {
-                        dyna = sparePartsAPI().fetchPartsByQuantity(100, 450);
+                        dyna = SparePartsAPI().fetchPartsByQuantity(100, 450);
                       });
                     } else if (value == 'Min') {
                       setState(() {
-                        dyna = sparePartsAPI().fetchPartsByQuantity(0, 10);
+                        dyna = SparePartsAPI().fetchPartsByQuantity(0, 10);
                       });
                     }
                   });
@@ -458,7 +453,7 @@ class _spareFilterBarState extends State<spareFilterBar> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            dyna = sparePartsAPI().fetchPartsByQuantity(
+                            dyna = SparePartsAPI().fetchPartsByQuantity(
                                 int.parse(textEditingController.text),
                                 int.parse(textEditingController2.text));
                           });

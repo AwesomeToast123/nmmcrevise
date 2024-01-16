@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nmmcrevise/api_services/cart_api_services.dart';
 import 'package:nmmcrevise/api_services/dealer_api_services.dart';
-import 'package:nmmcrevise/Features/OrderList/orders.dart';
+import 'package:nmmcrevise/features/order_list/orders.dart';
 import 'package:quantity_input/quantity_input.dart';
 
-class cart_item_Vertical extends StatefulWidget {
+class Cart_item_Vertical extends StatefulWidget {
   final int quantity;
 
-  const cart_item_Vertical({required this.quantity, Key? key})
+  const Cart_item_Vertical({required this.quantity, Key? key})
       : super(key: key);
 
   @override
   _cartitemState createState() => _cartitemState(quantity: quantity);
 }
 
-class _cartitemState extends State<cart_item_Vertical> {
+class _cartitemState extends State<Cart_item_Vertical> {
   int steppedIntInput = 0;
   final int quantity;
 
@@ -468,7 +468,7 @@ class _cartitemState extends State<cart_item_Vertical> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        dealerAPI().updateDealer(_address.text);
+                        DealerAPI().updateDealer(_address.text);
                         Navigator.pop(context);
                       });
                     },

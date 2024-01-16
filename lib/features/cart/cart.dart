@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:nmmcrevise/Features/Cart/cart_items.dart';
-import 'package:nmmcrevise/Features/dealer/dealerFail.dart';
 import 'package:http/http.dart' as http;
+import 'package:nmmcrevise/features/dealer/dealer_faill.dart';
 
 WelcomeDealer welcomeDealerFromJson(String str) =>
     WelcomeDealer.fromJson(json.decode(str));

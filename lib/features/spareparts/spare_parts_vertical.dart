@@ -3,17 +3,17 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nmmcrevise/APICalls/sparePartsAPI.dart';
-import 'package:nmmcrevise/Features/Product/ProductPreview.dart';
+import 'package:nmmcrevise/api_services/spare_parts_api_services.dart';
+import 'package:nmmcrevise/features/product/product_preview.dart';
 
-class sparePartsVertical extends StatefulWidget {
-  const sparePartsVertical({Key? key}) : super(key: key);
+class SparePartsVertical extends StatefulWidget {
+  const SparePartsVertical({Key? key}) : super(key: key);
 
   @override
-  State<sparePartsVertical> createState() => _sparePartsVerticalState();
+  State<SparePartsVertical> createState() => _SparePartsVerticalState();
 }
 
-class _sparePartsVerticalState extends State<sparePartsVertical> {
+class _SparePartsVerticalState extends State<SparePartsVertical> {
   late Future<List<dynamic>> dyna;
 
   late Future<dynamic> dynna;
@@ -28,14 +28,13 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
   @override
   initState() {
     super.initState();
-    dyna = sparePartsAPI().fetchParts();
-    dynna = sparePartsAPI().fetchPartsByFrequencyAsc();
+    dyna = SparePartsAPI().fetchParts();
+    dynna = SparePartsAPI().fetchPartsByFrequencyAsc();
   }
 
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
 
     TextEditingController controller = TextEditingController();
 
@@ -106,7 +105,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                                             switchSearchTag = false;
                                             switchSearchType = false;
                                             status = "Search parts by Name";
-                                            dyna = sparePartsAPI().fetchParts();
+                                            dyna = SparePartsAPI().fetchParts();
                                           });
                                         },
                                         child: Text(
@@ -122,7 +121,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                                             switchSearchTag = true;
                                             switchSearchType = false;
                                             status = "Search parts by Tag";
-                                            dyna = sparePartsAPI().fetchParts();
+                                            dyna = SparePartsAPI().fetchParts();
                                             controller.clear();
                                           });
                                         },
@@ -139,7 +138,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                                             switchSearchType = true;
                                             switchSearchTag = false;
                                             status = "Search parts by Type";
-                                            dyna = sparePartsAPI().fetchParts();
+                                            dyna = SparePartsAPI().fetchParts();
                                             controller.clear();
                                           });
                                         },
@@ -157,7 +156,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                                             switchSearchTag = false;
                                             status =
                                                 "Input Desired Search Item Here";
-                                            dyna = sparePartsAPI().fetchParts();
+                                            dyna = SparePartsAPI().fetchParts();
                                             controller.clear();
                                           });
                                         },
@@ -180,20 +179,20 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                                         switchSearchTag == false &&
                                         switchSearchType == false) {
                                       dyna =
-                                          sparePartsAPI().fetchPartsName(text);
+                                          SparePartsAPI().fetchPartsName(text);
                                     } else if (switchSearchName == false &&
                                         switchSearchTag == true &&
                                         switchSearchType == false) {
                                       dyna =
-                                          sparePartsAPI().fetchPartsTag(text);
+                                          SparePartsAPI().fetchPartsTag(text);
                                     } else if (switchSearchName == false &&
                                         switchSearchTag == false &&
                                         switchSearchType == true) {
                                       dyna =
-                                          sparePartsAPI().fetchPartsTag(text);
+                                          SparePartsAPI().fetchPartsTag(text);
                                     } else {
                                       dyna =
-                                          sparePartsAPI().fetchPartsMix(text);
+                                          SparePartsAPI().fetchPartsMix(text);
                                     }
                                   });
                                 },
@@ -456,12 +455,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
   }
 
   Widget FilterBars() {
-    String valName = "Name";
-    String valBrand = "Brand";
-    String valTag = "Tags";
-    String valQuant = "Quantity";
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
+
 
     return Container(
       child: FutureBuilder<List<dynamic>>(
@@ -480,7 +474,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                dyna = sparePartsAPI().fetchPartsInStock();
+                                dyna = SparePartsAPI().fetchPartsInStock();
                               });
                             },
                             child: Text(
@@ -494,7 +488,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                dyna = sparePartsAPI().fetchPartsOutofStock();
+                                dyna = SparePartsAPI().fetchPartsOutofStock();
                               });
                             },
                             child: Text(
@@ -594,11 +588,11 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                         onChanged: (value) {
                           if (value == 'Name') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna = SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna = SparePartsAPI()
                                   .fetchPartsName(value.toString());
                             });
                           }
@@ -676,11 +670,11 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                         onChanged: (value) {
                           if (value == 'Tags') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna = SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna = SparePartsAPI()
                                   .fetchPartsTag(value.toString());
                             });
                           }
@@ -758,11 +752,11 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                         onChanged: (value) {
                           if (value == 'Brand') {
                             setState(() {
-                              dyna = sparePartsAPI().fetchParts();
+                              dyna = SparePartsAPI().fetchParts();
                             });
                           } else {
                             setState(() {
-                              dyna = sparePartsAPI()
+                              dyna = SparePartsAPI()
                                   .fetchPartsByBrand(value.toString());
                             });
                           }
@@ -843,11 +837,11 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                     selectedValue = value as String;
                     if (value == 'Max') {
                       setState(() {
-                        dyna = sparePartsAPI().fetchPartsByQuantity(100, 450);
+                        dyna = SparePartsAPI().fetchPartsByQuantity(100, 450);
                       });
                     } else if (value == 'Min') {
                       setState(() {
-                        dyna = sparePartsAPI().fetchPartsByQuantity(0, 10);
+                        dyna = SparePartsAPI().fetchPartsByQuantity(0, 10);
                       });
                     }
                   });
@@ -903,7 +897,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            dyna = sparePartsAPI().fetchPartsByQuantity(
+                            dyna = SparePartsAPI().fetchPartsByQuantity(
                                 int.parse(textEditingController.text),
                                 int.parse(textEditingController2.text));
                           });
@@ -952,7 +946,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                         onPressed: () {
                           setState(() {
                             stauts = "The Hottest picks";
-                            dynna = sparePartsAPI().fetchPartsByFrequencyAsc();
+                            dynna = SparePartsAPI().fetchPartsByFrequencyAsc();
                           });
                         },
                         child: Text(
@@ -965,7 +959,7 @@ class _sparePartsVerticalState extends State<sparePartsVertical> {
                         onPressed: () {
                           setState(() {
                             stauts = "The Newest picks";
-                            dynna = sparePartsAPI().fetchPartsByFrequencyDesc();
+                            dynna = SparePartsAPI().fetchPartsByFrequencyDesc();
                           });
                         },
                         child: Text(
